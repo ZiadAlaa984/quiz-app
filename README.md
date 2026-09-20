@@ -1,3 +1,12 @@
+Initialize Node project
+Express server
+Environment variables
+MongoDB connection
+Basic error handling
+Project structure
+.gitignore
+README
+
 quiz-api/
 │
 ├── src/
@@ -12,6 +21,10 @@ quiz-api/
 ├── .gitignore
 ├── package.json
 └── README.md
+
+
+
+
 
 
 Auth
