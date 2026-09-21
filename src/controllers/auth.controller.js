@@ -2,9 +2,10 @@ import User from "../models/user.model.js";
 import AppError from "../utils/AppError.js";
 import generateToken from "../utils/generateToken.js";
 import bcrypt from "bcryptjs";
+import catchAsync from "../utils/catchAsync.js";
 
 
-const signup = async (req, res) => {
+const signup =  catchAsync(async (req, res) => {
     const { name, email, password } = req.body;
 
     if (!name || !email || !password) {
@@ -25,8 +26,8 @@ const signup = async (req, res) => {
         newUser,
         token
     });
-}
-const login = async (req, res) => {
+})
+const login = catchAsync(async (req, res) => {
     const { email, password } = req.body;
 
     if (!email || !password) {
@@ -53,8 +54,8 @@ const login = async (req, res) => {
         token
     });
 
-}
-const Me = async (req, res) => {
+})
+const Me = catchAsync(async (req, res) => {
     const user = req.user;
     
     if (!user) {
@@ -64,7 +65,7 @@ const Me = async (req, res) => {
         message: "User found!",
         user
     });
-}
+})
 
 
 export { signup, login, Me };

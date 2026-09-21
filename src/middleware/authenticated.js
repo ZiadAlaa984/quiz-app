@@ -1,11 +1,11 @@
 import User from "../models/user.model.js";
 import AppError from "../utils/AppError.js";
 import jwt from "jsonwebtoken";
-const Authorize = async (req, res, next) => {
+const authenticated = async (req, res, next) => {
     
     const authHeader = req.headers.authorization;
     if (!authHeader || !authHeader.startsWith("Bearer ")) {
-         throw new AppError("Not authorized", 401);
+         throw new AppError("Not authenticated", 401);
     }
 
     const token = authHeader.split(" ")[1];
@@ -23,4 +23,4 @@ const Authorize = async (req, res, next) => {
     next();
 };
 
-export default Authorize;
+export default authenticated;

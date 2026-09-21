@@ -24,6 +24,19 @@ quiz-api/
 
 
 
+Quizzes
+
+1- create model first 
+
+Quizzes
+ ├── Get all
+ ├── Get one
+ ├── Create
+ ├── Update
+ └── Delete
+
+
+
 
 
 
@@ -32,12 +45,6 @@ Auth
  ├── Login
  └── Me
 
-Quizzes
- ├── Get all
- ├── Get one
- ├── Create
- ├── Update
- └── Delete
 
 Questions
  ├── Create
