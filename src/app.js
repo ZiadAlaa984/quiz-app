@@ -4,6 +4,7 @@ import connectDB from "./utils/connectDB.js";
 import errorHandler from "./middleware/errorMiddleware.js";
 import authRoutes from "./routes/auth.route.js";    
 import quizRoutes from "./routes/quiz.route.js";    
+import questionRoutes from "./routes/question.route.js";    
 dotenv.config();
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -17,6 +18,7 @@ app.get("/", (req, res) => {
 
 app.use("/api/v1/auth/", authRoutes);
 app.use("/api/v1/quizzes/", quizRoutes);
+app.use("/api/v1/questions/", questionRoutes);
 
 
 app.use(errorHandler);

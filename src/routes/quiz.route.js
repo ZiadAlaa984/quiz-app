@@ -1,13 +1,14 @@
 import express from "express";
-import { createquiz, deletequiz, getquiz, getquizzes, updatequiz } from "../controllers/quiz.controller.js";
 import authenticated from "../middleware/authenticated.js";
 import authorized from "../middleware/authorized.js";
+import quizController from "../controllers/quiz.controller.js";
 
 const router = express.Router();
+const {getAllquizs, getquiz, createquiz, updatequiz, deletequiz } = quizController;
 
 router.use(authenticated); // Apply authentication middleware to all routes
 
-router.route("/").get(getquizzes).post(authorized(["admin"]),createquiz);
+router.route("/").get(getAllquizs).post(authorized(["admin"]),createquiz);
 router.route('/:id')
   .get(getquiz)
   .patch(authorized(["admin"]), updatequiz)
