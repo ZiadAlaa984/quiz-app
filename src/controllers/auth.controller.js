@@ -16,7 +16,12 @@ const signup =  catchAsync(async (req, res) => {
     if(userExist) {
         throw new AppError("User already exists!", 400);
     }    
-    const newUser = await User.create(req.body);
+    const newUser = await User.create({
+        name,
+        email,
+        password,
+        role: "user"
+    });
 
 
      const token = await generateToken(newUser,process.env.JWT_SECRET);

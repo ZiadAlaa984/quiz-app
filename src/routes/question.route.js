@@ -7,8 +7,8 @@ const { createQuestion, deleteQuestion, getAllQuestions, getQuestion, updateQues
 
 router.use(authenticated);
 
-router.route("/").get(getAllQuestions).post( authorized("admin"),createQuestion);
-router.route("/:id").get(getQuestion).patch( authorized("admin"),updateQuestion).delete(authorized("admin"),deleteQuestion);
+router.route("/").get(getAllQuestions)
+router.route("/:id").post( authorized("admin"),createQuestion).get(getQuestion).patch( authorized("admin"),updateQuestion).delete(authorized("admin"),deleteQuestion);
 
 
 export default router;

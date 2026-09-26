@@ -12,6 +12,12 @@ const questionSchema = new mongoose.Schema({
     answer: {
     type: String,
     required: true,
+    select: false
+  },
+  quiz: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'Quiz',
+    required: true,
   },
 });
 
