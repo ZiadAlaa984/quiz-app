@@ -42,7 +42,7 @@ const login = catchAsync(async (req, res) => {
     const user = await User.findOne({ email }).select("+password");
 
     if (!user) {
-        throw new AppError("Invalid email or password", 401);
+        throw new AppError("No user found with this email", 404);
     }
 
     const isPasswordValid = await bcrypt.compare(password, user.password);
