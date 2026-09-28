@@ -28,8 +28,5 @@ const getResult = catchAsync(async (req, res, next) => {
     });
 });
 
-const createResult = resultFactory.createOne;
-const updateResult = resultFactory.updateOne;
-const deleteResult = resultFactory.deleteOne;
 
 export default { getAllResults, getResult, createResult, updateResult, deleteResult };
