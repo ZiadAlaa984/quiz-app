@@ -29,6 +29,13 @@ const quizSchema = new mongoose.Schema({
 });
 
 
+quizSchema.pre(/^find/, function () {
+  this.populate("questions");
+  
+});
 
 const Quiz = mongoose.model("Quiz", quizSchema);
+
+
+
 export default Quiz;
